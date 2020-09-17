@@ -9,12 +9,14 @@ def blackjack_score(hand)
     raise ArgumentError.new("hand must be between 2 and 5 cards")
   end
 
+  ace_count = 0
   hand.each do |card|
     case card
     when 'Jack', 'Queen', 'King'
       card = 10
     when 'Ace'
       card = 1
+      ace_count += 1
     when (2..9)
       card = card
     else
@@ -23,8 +25,9 @@ def blackjack_score(hand)
     score += card
   end
 
-  if hand.include?('Ace') && score <= 10
-    score = score + 10
+  while score <= 11 && ace_count > 0
+    ace_count -= 1
+    score += 10
   end
 
   if score <= 21
