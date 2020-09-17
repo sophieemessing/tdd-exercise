@@ -69,6 +69,12 @@ describe 'Blackjack Score' do
         blackjack_score(hand)
       }.must_raise ArgumentError
 
+    hand = [5, 13]
+
+      expect {
+        blackjack_score(hand)
+      }.must_raise ArgumentError
+
   end
 
 
