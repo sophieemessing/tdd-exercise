@@ -111,4 +111,39 @@ describe 'Blackjack Score' do
 
   end
 
+  it 'can handle 2 Aces' do
+
+    # Act 3 + 11 + 1 = 15
+    hand = [3, 'Ace', 'Ace']
+
+    # Arrange
+    score = blackjack_score(hand)
+
+    # Assert
+    expect(score).must_equal 15
+
+
+    # Act 9 + 11 + 1 = 21
+    hand = [9, 'Ace', 'Ace']
+
+    # Arrange
+    score = blackjack_score(hand)
+
+    # Assert
+    expect(score).must_equal 21
+
+
+    # Act 9 + 2 + 1 + 1 = 13
+    hand = [9, 2, 'Ace', 'Ace']
+
+    # Arrange
+    score = blackjack_score(hand)
+
+    # Assert
+    expect(score).must_equal 13
+
+
+
+  end
+
 end
